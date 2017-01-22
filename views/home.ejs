@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous">
+        </script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+    <body class="container">
+        <div class="top text-center">
+            <h1>Plans tonight?</h1>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-glass" aria-hidden="true"></span>
+            <p>See which bars are hoppin' tonight and RSVP ahead of time!</p>
+            <p>Remember: take a cab and drink responsibly.</p>
+          
+                <form method="POST" action="/">
+                  <div class="input-group">
+                <input type="text" class="form-control text-center" placeholder="Where you at?" name="searchTerm">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Go!</button>
+                </span>
+                </div>
+                </form>   
+            
+        </div>
+        <% if(data){ %>
+        <div>
+           <% for(var i=0; i<data.length;i++){%>
+                <div class="media" style="border: solid 1px;margin-bottom: 10px;padding: 10px;">
+                <div class="media-left media-middle">
+                    <img class="media-object" src=<%=data[i].image_url %> alt="">
+                </div>
+                <div class="media-body">
+                <button class="btn btn-primary" type="button" style="float:right">
+                        Going <span class="badge primary"><%= data[i].counter%></span>
+                </button>
+                    <a href=<%data[i].url%> >
+                        <h4 class="media-heading"> <%= data[i].name %> </h4>
+                    </a>
+                    
+                    
+                    <p><%= data[i].snippet_text %></p>
+                </div>
+                </div>           
+           <%}%>
+        </div>
+        <%}%>
+    </body>
+
+</html>
+
