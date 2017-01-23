@@ -1,3 +1,5 @@
 .env
 deleteletet.js
 node_modules/
+willDelete.js
+.vscode/
