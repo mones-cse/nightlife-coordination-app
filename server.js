@@ -11,6 +11,10 @@ app.listen(8080);
 var request_yelp = require('./app/yelp_api')
 //========== route ========== //
 require('./app/route')(app,request_yelp);
+//========= mongo ============//
+var mongoose =require('mongoose');
+mongoose.connect(process.env.DB_URL);
+
 
 
 
